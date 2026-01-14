@@ -41,10 +41,10 @@ SELECT DISTINCT pizza_name_id, unit_price FROM pizza_sales;
 
 
 --Preço médio do cardapio de pizzas
-SELECT AVG(unitPrice) AS MeanPricePerPizza
+SELECT AVG(MeanUnitPrice) AS MeanPricePerPizza
 FROM (
     SELECT 
-      pizza_name, AVG(unit_price) AS unitPrice
+      pizza_name, AVG(unit_price) AS MeanUnitPrice
     FROM pizza_sales
     GROUP BY pizza_name
     );
@@ -53,4 +53,8 @@ FROM (
 SELECT COUNT(*), pizza_name 
 FROM pizza_sales
 GROUP BY pizza_name;
+
+SELECT pizza_name, AVG(unit_price) FROM pizza_sales
+GROUP BY pizza_name
+ORDER BY pizza_name;
 
